@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       // you want
 
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.purple,
       ),
       // A widget which will be started on application startup
       home: MyHomePage(title: 'Widgets'),
@@ -35,27 +35,31 @@ class MyHomePage extends StatelessWidget {
         title: (Text(title)),
         centerTitle: true,
       ),
+      //Column widget to display all it's chilldren in a vertical array
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
+          //Text widget
           Text(
             "RotatedBox Vs FittedBox",
           ),
+          //Container widget without RotatedBox widget
           Container(
             alignment: Alignment.center,
-            color: Colors.lightBlueAccent,
+            color: Color(0xff6f858e),
             height: 100,
             width: 100,
             child: RotatedBox(
                 quarterTurns: 0,
                 child: Text(
                   'Rotated by 0 quarter',
-                  style: TextStyle(fontSize: 18, color: Colors.pink),
+                  style: TextStyle(fontSize: 18, color: Colors.black),
                 )),
           ),
+          //Container with RotatedBox widget
           Container(
             alignment: Alignment.center,
-            color: Colors.pinkAccent,
+            color: Colors.black,
             height: 100,
             width: 100,
             child: RotatedBox(
@@ -65,6 +69,7 @@ class MyHomePage extends StatelessWidget {
                   style: TextStyle(fontSize: 18, color: Colors.white),
                 )),
           ),
+          //Container without FittedBox widget
           Container(
             alignment: Alignment.center,
             color: Colors.grey,
@@ -74,13 +79,14 @@ class MyHomePage extends StatelessWidget {
               alignment: Alignment.center,
               height: 50,
               width: 50,
-              color: Colors.pinkAccent,
+              color: Colors.black,
               child: Text(
                 "without fitted box",
                 style: TextStyle(color: Colors.white),
               ),
             ),
           ),
+          //Container with FittedBox widget
           Container(
             color: Colors.grey,
             height: 100,
@@ -90,7 +96,7 @@ class MyHomePage extends StatelessWidget {
               child: Container(
                 height: 50,
                 width: 50,
-                color: Colors.pinkAccent,
+                color: Colors.black,
                 child: Center(
                   child: Text(
                     "With Fitted Box",
@@ -102,7 +108,7 @@ class MyHomePage extends StatelessWidget {
               ),
             ),
           ),
-          //Flutter icons
+          //Container widget with Flutter icons
           Container(
             child: Icon(
               Icons.favorite,
@@ -110,6 +116,7 @@ class MyHomePage extends StatelessWidget {
               size: 30.0,
             ),
           ),
+          //Container widget with Flutter icons
           Container(
             child: Icon(
               Icons.audiotrack,
@@ -117,11 +124,12 @@ class MyHomePage extends StatelessWidget {
               size: 30.0,
             ),
           ),
+          //Container widget with font awesome icons
           Container(
             child: Icon(
-              FontAwesomeIcons.house,
+              FontAwesomeIcons.android,
               size: 50, //Icon Size
-              color: Colors.white, //Color Of Icon
+              color: Colors.black, //Color Of Icon
             ),
           )
         ],
