@@ -1,0 +1,45 @@
+import 'package:flutter/material.dart';
+
+class ChoiceChipExample extends StatefulWidget {
+  @override
+  _ChoiceChipExampleState createState() => _ChoiceChipExampleState();
+}
+
+class _ChoiceChipExampleState extends State<ChoiceChipExample> {
+  int _selectedChoice = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Flutter Choice Chip Example'),
+      ),
+      body: Center(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: List.generate(3, (index) {
+            return Padding(
+              padding: EdgeInsets.symmetric(horizontal: 8),
+              child: ChoiceChip(
+                label: Text('Choice ${index + 1}'),
+                selected: _selectedChoice == index,
+                onSelected: (isSelected) {
+                  setState(() {
+                    _selectedChoice = isSelected ? index : 12;
+                  });
+                },
+                backgroundColor: Colors.grey[200],
+                selectedColor: Colors.blue,
+                disabledColor: Colors.grey,
+                labelStyle: TextStyle(
+                    color:
+                        _selectedChoice == index ? Colors.white : Colors.black,
+                    fontSize: 16),
+              ),
+            );
+          }),
+        ),
+      ),
+    );
+  }
+}
