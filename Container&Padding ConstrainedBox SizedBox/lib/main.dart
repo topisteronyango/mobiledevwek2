@@ -1,8 +1,11 @@
 /*
-The goal for this work is to understand:
+The goal for this work is to understand and also cover the following parties of assignment
 1. Container & padding
 2. ConstrainedBox
 3. SizedBox
+8. Floating action button,
+9. side menu, popup menu
+
 */
 
 import 'package:flutter/material.dart';
