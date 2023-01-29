@@ -1,3 +1,8 @@
+/* Creating 
+FittedBox 
+RotatedBox 
+Icon 
+Images widgets*/
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -15,7 +20,7 @@ class MyApp extends StatelessWidget {
       // you want
 
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.purple,
       ),
       // A widget which will be started on application startup
       home: MyHomePage(title: 'Widgets'),
@@ -35,29 +40,39 @@ class MyHomePage extends StatelessWidget {
         title: (Text(title)),
         centerTitle: true,
       ),
+      //Adding floatingActionButton Icon
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: () {
+          print("Welcome");
+        },
+      ),
+
+      //Column widget to display all it's chilldren in a vertical array
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Text(
-            "RotatedBox Vs FittedBox",
-          ),
+          //Text widget
+
+          //Container widget without RotatedBox widget
           Container(
             alignment: Alignment.center,
-            color: Colors.lightBlueAccent,
-            height: 100,
-            width: 100,
+            color: Color(0xff6f858e),
+            height: 80,
+            width: 80,
             child: RotatedBox(
                 quarterTurns: 0,
                 child: Text(
                   'Rotated by 0 quarter',
-                  style: TextStyle(fontSize: 18, color: Colors.pink),
+                  style: TextStyle(fontSize: 18, color: Colors.black),
                 )),
           ),
+          //Container with RotatedBox widget
           Container(
             alignment: Alignment.center,
-            color: Colors.pinkAccent,
-            height: 100,
-            width: 100,
+            color: Colors.black,
+            height: 80,
+            width: 80,
             child: RotatedBox(
                 quarterTurns: 2,
                 child: Text(
@@ -65,44 +80,47 @@ class MyHomePage extends StatelessWidget {
                   style: TextStyle(fontSize: 18, color: Colors.white),
                 )),
           ),
+          //Container without FittedBox widget
           Container(
             alignment: Alignment.center,
             color: Colors.grey,
-            height: 100,
-            width: 100,
+            height: 80,
+            width: 80,
             child: Container(
               alignment: Alignment.center,
               height: 50,
               width: 50,
-              color: Colors.pinkAccent,
+              color: Colors.black,
               child: Text(
                 "without fitted box",
                 style: TextStyle(color: Colors.white),
               ),
             ),
           ),
+          //Container with FittedBox widget
           Container(
             color: Colors.grey,
-            height: 100,
-            width: 100,
+            height: 80,
+            width: 80,
             child: FittedBox(
               fit: BoxFit.fill,
               child: Container(
                 height: 50,
                 width: 50,
-                color: Colors.pinkAccent,
+                color: Colors.black,
                 child: Center(
                   child: Text(
                     "With Fitted Box",
                     style: TextStyle(
                       color: Colors.white,
+                      fontSize: 12.0,
                     ),
                   ),
                 ),
               ),
             ),
           ),
-          //Flutter icons
+          //Container widget with Flutter icons
           Container(
             child: Icon(
               Icons.favorite,
@@ -110,6 +128,7 @@ class MyHomePage extends StatelessWidget {
               size: 30.0,
             ),
           ),
+          //Container widget with Flutter icons
           Container(
             child: Icon(
               Icons.audiotrack,
@@ -117,15 +136,37 @@ class MyHomePage extends StatelessWidget {
               size: 30.0,
             ),
           ),
+          //Container widget with font awesome icons
           Container(
             child: Icon(
-              FontAwesomeIcons.house,
+              FontAwesomeIcons.android,
               size: 50, //Icon Size
-              color: Colors.white, //Color Of Icon
+              color: Colors.black, //Color Of Icon
             ),
-          )
+          ),
+          //Adding the image widget manually and url
+          Container(
+            constraints: BoxConstraints.expand(
+              height: 30.0,
+            ),
+            child: Image.asset(
+              'assets/flutlogo.png',
+              fit: BoxFit.contain,
+            ),
+          ),
+          Container(
+            constraints: BoxConstraints.expand(
+              height: 30.0,
+            ),
+            //Adding image from the internet, through url
+            child: Image.network(
+              "https://media.istockphoto.com/id/1209490142/vector/realistic-house-vector.jpg?s=612x612&w=0&k=20&c=4r9FZkC1A83fuoMqyGjspLeFo95KUKMeE5T4AkTSZ6I=",
+              fit: BoxFit.contain,
+            ),
+          ),
         ],
       ),
     );
   }
 }
+
